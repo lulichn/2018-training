@@ -11,6 +11,7 @@ if ('' != $param) {
 if (! isset($params[1])) {
   // 404 を返す
   NotFound::display();
+  exit;
 }
 
 $className = $params[1];

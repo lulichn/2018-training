@@ -14,8 +14,6 @@ class NotFound {
   </body>
 </html>
 EOD;
-
-    exit;
   }
 }
 
