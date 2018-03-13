@@ -1,11 +1,25 @@
 <?php
-new PDO();
+require_once './NotFound.php';
 
-//print_r($_SERVER);
+$param = ereg_replace('/?$', '', $_SERVER['PATH_INFO']);
+$params = array();
+if ('' != $param) {
+  // パラメーターを / で分割
+  $params = explode('/', $param);
+}
 
-$method = $_SERVER['REQUEST_METHOD'];
-$path   = $_SERVER['PATH_INFO'];
+if (! isset($params[1])) {
+  // 404 を返す
+  NotFound::display();
+}
 
-echo "$method  $path  \n";
+$className = $params[1];
+$method    = $_SERVER['REQUEST_METHOD'];
+
+require_once './controllers/' . $className . '.php';
+$instance = new $className();
+
+$instance->$method();
 
 ?>
+
