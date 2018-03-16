@@ -1,6 +1,6 @@
 # 2018 Training
-Learning PHP and Mysql
+Learning PHP and MySql
 
-## 
-* http://www.objective-php.net/mvc/framework
+## Reference
+* [Objective-PHP.net - MVCの仕組み構築](http://www.objective-php.net/mvc/framework)
 

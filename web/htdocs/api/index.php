@@ -10,19 +10,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $incPath);
 
 // 設定ファイルの読み込み
 require_once 'Config.php';
-
-// クラスのオートロード設定
-function __autoload($className){
-    require_once $className . ".php";
-}
-
-// $connInfo = array(
-//    'host'     => 'localhost',
-//    'dbname'   => 'sample',
-//    'dbuser'   => 'hoge',
-//    'password' => 'xxxxxxxx'
-//);
-//ModelBase::setConnectionInfo($connInfo);
+require_once 'Dispatcher.php';
 
 // リクエスト処理
 $dispatcher = new Dispatcher();

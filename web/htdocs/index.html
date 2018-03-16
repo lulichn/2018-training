@@ -6,9 +6,18 @@
 <body>
   <div id="app">
     <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>タイトル</th>
+          <th>作成日時</th>
+        </tr>
+      </thead>
       <tbody>
         <tr v-for="(post) in posts">
-          <th>{{post}}</th>
+          <th><img v-bind:src="'thumbnail/' +  post.thumbnail" width="225" height="127"></th>
+          <th>{{post.title}}</th>
+          <th>{{post.created_at}}</th>
         </tr>
       </tbody>
     </table>
