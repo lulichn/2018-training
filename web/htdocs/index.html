@@ -2,10 +2,11 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
 </head>
 <body>
   <div id="app">
-    <table>
+    <table class="hover">
       <thead>
         <tr>
           <th></th>
@@ -14,17 +15,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(post) in posts">
-          <th><img v-bind:src="'thumbnail/' +  post.thumbnail" width="225" height="127"></th>
-          <th>{{post.title}}</th>
-          <th>{{post.created_at}}</th>
+        <tr v-for="(post) in posts" @click="select(post.id)">
+          <td><img v-bind:src="'thumbnail/' +  post.thumbnail" width="225" height="127"></td>
+          <td>{{post.title}}</td>
+          <td>{{post.created_at}}</td>
         </tr>
       </tbody>
     </table>
-    <button v-on:click="request">Load</button>
+    <a class="button" v-on:click="request">Refresh</a>
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
   <script src="./src/app.js"></script>
 </body>
 </html

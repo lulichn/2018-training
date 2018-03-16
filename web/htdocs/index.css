@@ -3,18 +3,14 @@
 }
 
 html, body {
-    margin : 0;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
     border : 0;
     padding : 0;
-    /*width : 100%;*/
-    max-width: 960px;
-    height : 100%;
 }
 
 body > div {
     margin-top: 20px;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 960px;
 }
 

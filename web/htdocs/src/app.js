@@ -2,7 +2,8 @@
 new Vue({
   el: '#app',
   data: {
-    posts: []
+    posts: [],
+    count: 0
   },
   methods: {
     request() {
@@ -10,6 +11,10 @@ new Vue({
         .then(response => {
           this.posts = response.data;
         });
+    },
+
+    select(post_id) {
+      this.count += 1
     }
   }
 });
