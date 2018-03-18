@@ -17,7 +17,7 @@ const Home = {
           </tr>
         </tbody>
       </table>
-      <a class="button" v-on:click="request">Refresh</a>
+      <a class="button" v-on:click="refresh">Refresh</a>
     </div>
   `,
   data() {
@@ -26,16 +26,18 @@ const Home = {
     }
   },
   methods: {
-    request() {
+    refresh() {
       axios.get('/api/posts')
         .then(response => {
           this.posts = response.data;
         });
     },
-
     select(post_id) {
       router.push({ path: 'watch', query: { v: post_id  }})
     }
+  },
+  mounted() {
+    this.refresh();
   }
 }
 
