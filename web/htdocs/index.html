@@ -6,28 +6,16 @@
 </head>
 <body>
   <div id="app">
-    <table class="hover">
-      <thead>
-        <tr>
-          <th></th>
-          <th>タイトル</th>
-          <th>作成日時</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(post) in posts" @click="select(post.id)">
-          <td><img v-bind:src="'thumbnail/' +  post.thumbnail" width="225" height="127"></td>
-          <td>{{post.title}}</td>
-          <td>{{post.created_at}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <a class="button" v-on:click="request">Refresh</a>
+    <router-view></router-view>
   </div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+  <script src="./src/Home.js"></script>
+  <script src="./src/Watch.js"></script>
+  <script src="./src/router.js"></script>
   <script src="./src/app.js"></script>
 </body>
-</html
+</html>
+
