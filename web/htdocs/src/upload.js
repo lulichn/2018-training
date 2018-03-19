@@ -44,7 +44,20 @@ const Upload = {
       this.previewSrc = window.URL.createObjectURL(this.target);
     },
     onSubmit(event) {
-      event;
+      const params = new FormData();
+      params.append('file', this.target);
+
+      const config = {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      };
+
+      axios.post('/api/upload', params, config)
+        .then(response => {
+          response;
+        })
+        .catch(error => {
+          error;
+        });
     }
   },
   addedfile(file) {

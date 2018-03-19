@@ -57,7 +57,7 @@ body > div {
 }
 
 .dropbox:hover {
-    background: lightblue; /* when mouse over to the drop zone, change color */
+    background: #b2deff; /* when mouse over to the drop zone, change color */
 }
 
 .dropbox p {
