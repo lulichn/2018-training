@@ -2,15 +2,67 @@
     display: none;
 }
 
-html, body {
+nav {
+  height: 37px;
+  background-color: #b2deff;
+}
+
+body > div {
+}
+
+.header, .main {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     border : 0;
-    padding : 0;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
-body > div {
-    margin-top: 20px;
+.header {
+  display: flex;
+  padding-top: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.navigation-left {
+  margin-right: auto;
+}
+
+.navigation-right {
+}
+
+.dropbox {
+  outline: 2px dashed grey; /* the dash box */
+  outline-offset: -10px;
+  //background: lightcyan;
+  color: dimgray;
+  font-size: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  min-height: 100px; /* minimum height */
+  position: relative;
+  cursor: pointer;
+}
+
+.input-file {
+    opacity: 0; /* invisible but it's there! */
+    width: 80%;
+    height: 100px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.dropbox:hover {
+    background: lightblue; /* when mouse over to the drop zone, change color */
+}
+
+.dropbox p {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 50px 0;
 }
 

@@ -11,6 +11,10 @@ const Watch = {
         <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
       </video>
     </div>
-  `
+  `,
+  methods: {
+  },
+  mounted() {
+  }
 }
 

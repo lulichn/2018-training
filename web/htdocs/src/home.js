@@ -5,8 +5,8 @@ const Home = {
         <thead>
           <tr>
             <th></th>
-            <th>タイトル</th>
-            <th>作成日時</th>
+            <th>Title</th>
+            <th>Uploaded at</th>
           </tr>
         </thead>
         <tbody>
