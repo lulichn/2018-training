@@ -8,7 +8,7 @@ class Posts {
     $posts = new models\Posts();
     $resp = $posts->findAll();
     
-    header("Content-type: text/html; charset=utf-8");
+    header("Content-type: application/json; charset=utf-8");
     echo json_encode($resp);
   }
 }

@@ -45,6 +45,7 @@ const Upload = {
     },
     onSubmit(event) {
       const params = new FormData();
+      params.append('title', this.title);
       params.append('file', this.target);
 
       const config = {

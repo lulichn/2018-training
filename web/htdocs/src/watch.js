@@ -2,7 +2,7 @@ const Watch = {
   template: `
     <div>
       <video
-          id="my-video"
+          id="watch-video"
           class="video-js"
           controls
           preload="auto"
