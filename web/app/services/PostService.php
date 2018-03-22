@@ -12,6 +12,7 @@ class PostService {
     }
 
     public function getPost($id) {
+        $this->postRepository->incrementViewCount($id);
         $post = $this->postRepository->findById($id);
         return $post;
     }
@@ -19,10 +20,6 @@ class PostService {
     public function getPosts() {
         $posts = $this->postRepository->findAll();
         return $posts;
-    }
-
-    public function incrementViewCount($id) {
-        $this->postRepository->incrementViewCount($id);
     }
 }
 
