@@ -20,6 +20,10 @@ class PostService {
         $posts = $this->postRepository->findAll();
         return $posts;
     }
+
+    public function incrementViewCount($id) {
+        $this->postRepository->incrementViewCount($id);
+    }
 }
 
 ?>

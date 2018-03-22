@@ -8,6 +8,7 @@ class Post {
     private $assetPath;
     private $filename;
     private $videoType;
+    private $viewCount;
     private $uploadedAt;
 
     public function __construct(
@@ -16,6 +17,7 @@ class Post {
         $assetPath,
         $filename,
         $videoType,
+        $viewCount,
         $uploadedAt)
     {
         $this->id = $id;
@@ -23,6 +25,7 @@ class Post {
         $this->assetPath = $assetPath;
         $this->filename = $filename;
         $this->videoType = $videoType;
+        $this->viewCount = $viewCount;
         $this->uploadedAt = $uploadedAt;
     }
 
@@ -46,6 +49,10 @@ class Post {
         return $this->videoType;
     }
 
+    public function getViewCount() {
+        return $this->viewCount;
+    }
+
     public function getUploadedAt() {
         return $this->uploadedAt;
     }
@@ -57,6 +64,7 @@ class Post {
             'asset_path'  => $this->assetPath,
             'filename'    => $this->filename,
             'video_type'  => $this->videoType,
+            'view_count'  => $this->viewCount,
             'uploaded_at' => $this->uploadedAt);
 
         return $array;

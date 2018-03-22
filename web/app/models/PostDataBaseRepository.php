@@ -16,8 +16,8 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
         $this->dbh = $this->createDBHandle();
     }
 
-    function findById($id) {
-        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, uploaded_at FROM posts WHERE id = :id');
+    public function findById($id) {
+        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, view_count, uploaded_at FROM posts WHERE id = :id');
         $param = array(':id' => $id);
         $stmt->execute($param);
 
@@ -27,8 +27,8 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
         return $post;
     }
 
-    function findAll() {
-        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, uploaded_at FROM posts ORDER BY :order_key');
+    public function findAll() {
+        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, view_count, uploaded_at FROM posts ORDER BY :order_key');
         $param = array(':order_key' => 'created_at');
         $stmt->execute($param);
 
@@ -41,6 +41,17 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
         return $posts;
     }
 
+    public function incrementViewCount($id) {
+        $stmt = $this->dbh->prepare('UPDATE posts SET view_count = view_count + 1 WHERE id = :id');
+
+        $this->dbh->beginTransaction();
+
+        $param = array(':id' => $id);
+        $stmt->execute($param);
+
+        $this->dbh->commit();
+    }
+
     private function toEntity($result) {
         return new Post(
             $result['id'],
@@ -48,6 +59,7 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
             $result['asset_path'],
             $result['filename'],
             $result['video_type'],
+            $result['view_count'],
             $result['uploaded_at']);
     } 
 }

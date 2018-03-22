@@ -29,6 +29,8 @@ class Video extends AbstractControllerBase {
             exit;
         }
 
+        $service->incrementViewCount($id);
+
         header("Content-type: appication/json; charset=utf-8");
         echo json_encode($resp->toArray());
     }
