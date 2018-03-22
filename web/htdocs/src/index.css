@@ -22,8 +22,6 @@ body > div {
 .header {
   display: flex;
   padding-top: 2px;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
 .navigation-left {
@@ -31,6 +29,10 @@ body > div {
 }
 
 .navigation-right {
+}
+
+.video {
+    margin: 16px 16px 16px;
 }
 
 .dropbox {

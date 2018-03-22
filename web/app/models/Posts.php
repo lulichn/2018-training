@@ -9,7 +9,7 @@ class Posts extends ModelBase {
     function findById($id) {
         $dbh = $this->createDBHandle();
 
-        $stmt = $dbh->prepare('SELECT id, title, asset, created_at FROM posts WHERE id = :id');
+        $stmt = $dbh->prepare('SELECT id, title, asset, filename, type, created_at FROM posts WHERE id = :id');
         $param = array(':id' => $id);
         $stmt->execute($param);
 
