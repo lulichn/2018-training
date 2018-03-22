@@ -10,6 +10,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $incPath);
 
 // 設定ファイルの読み込み
 require_once 'Config.php';
+
+// Dispatcher
 require_once 'Dispatcher.php';
 
 // リクエスト処理

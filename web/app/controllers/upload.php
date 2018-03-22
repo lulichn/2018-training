@@ -1,37 +1,33 @@
 <?php
 
 require_once 'AbstractControllerBase.php';
-require_once 'models/UploadQueue.php';
+require_once 'models/UploadJobQueueDataBaseRepository.php';
+require_once 'services/UploadVideoService.php';
 
+/**
+  * /api/upload
+  */
 class Upload extends AbstractControllerBase {
-  public function post() {
-    $id = md5(uniqid(rand(),1));
+    /**
+      * Method: GET
+      */
+    public function post() {
+        $title = $this->get_value($_POST, 'title');
+        if (! $title) {
+            header("Content-type: application/json; charset=utf-8");
+            echo json_encode(array('status' => 'ng'));
+            exit;
+        }
+  
+        $repo = new models\UploadJobQueueDataBaseRepository();
+        $service = new services\UploadVideoService($repo);
 
-    $title = $this->get_value($_POST, 'title');
-    if (! $title) {
-      header("Content-type: application/json; charset=utf-8");
-      echo json_encode(array('status' => 'ng'));
-      exit;
+        $service->uploadVideo($title, $_FILES); 
+        
+        header("Content-type: application/json; charset=utf-8");
+        $resp = array('status' => 'ok');
+        echo json_encode($resp);
     }
-
-    $uploaddir = '/tmp/';
-    // $uploadfile = $uploaddir . basename($_FILES['file']['tmp_name']);
-    $uploadfile = $uploaddir . $id;
-
-    if (! move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-      header("Content-type: application/json; charset=utf-8");
-      echo json_encode(array('status' => 'ng'));
-      exit;
-    }
-
-    $queueItem = array('title' => $title, 'upload_path' => $uploadfile);
-    $uq = new models\UploadQueue();
-    $uq->save($queueItem);
-    
-    header("Content-type: application/json; charset=utf-8");
-    $resp = array('status' => 'ok');
-    echo json_encode($resp);
   }
-}
 
 ?>

@@ -8,19 +8,17 @@ const Watch = {
           preload="auto"
           autoplay
           data-setup='{}'>
-        <source v-if="this.src" v-bind:src="this.src" v-bind:type="this.type"></source>
+        <source v-if="this.src" v-bind:src="this.src" v-bind:type="this.post.video_type"></source>
       </video>
       <div>
-        <h1>{{ this.title }}</h1>
+        <h1>{{ this.post.title }}</h1>
       </div>
     </div>
   `,
   data() {
     return {
-      title: '',
-      src: '',
-      type: '',
-      created_at: ''
+      post: {},
+      src: ''
     }
   },
   methods: {
@@ -30,10 +28,8 @@ const Watch = {
       }
       axios.get('/api/video', config)
         .then(response => {
-          this.title      = response.data.title;
-          this.src        = 'assets/' + response.data.asset + '/' + response.data.filename;
-          this.type       = response.type;
-          this.created_at = response.data.created_at;
+          this.post = response.data;
+          this.src        = 'assets/' + response.data.asset_path + '/' + response.data.filename;
         });
     }
   },
