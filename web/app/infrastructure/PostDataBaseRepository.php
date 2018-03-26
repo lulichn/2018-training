@@ -3,8 +3,8 @@
 namespace models;
 
 require_once 'ModelBase.php';
-require_once 'Post.php';
-require_once 'PostRepository.php';
+require_once 'models/Post.php';
+require_once 'models/PostRepository.php';
 
 use \PDO;
 
@@ -17,7 +17,7 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
     }
 
     public function findById($id) {
-        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, view_count, uploaded_at FROM posts WHERE id = :id');
+        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, thumbnail, view_count, uploaded_at FROM posts WHERE id = :id');
         $param = array(':id' => $id);
         $stmt->execute($param);
 
@@ -28,7 +28,7 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
     }
 
     public function findAll() {
-        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, view_count, uploaded_at FROM posts ORDER BY :order_key');
+        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, thumbnail, view_count, uploaded_at FROM posts ORDER BY :order_key');
         $param = array(':order_key' => 'created_at');
         $stmt->execute($param);
 
@@ -39,6 +39,19 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
         }
 
         return $posts;
+    }
+
+    public function save(Post $post) {
+        $stmt = $this->dbh->prepare('INSERT INTO posts (id, title, asset_path, filename, video_type, thumbnail) VALUES (:id, :title, :asset_path, :filename, :video_type, :thumbnail)');
+        $param = array(
+            ':id'         => $post->getId(),
+            ':title'      => $post->getTitle(),
+            ':asset_path' => $post->getAssetPath(),
+            ':filename'   => $post->getFilename(),
+            ':video_type' => $post->getVideoType(),
+            ':thumbnail'  => $post->getThumbnail());
+
+        $stmt->execute($param);
     }
 
     public function incrementViewCount($id) {
@@ -59,6 +72,7 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
             $result['asset_path'],
             $result['filename'],
             $result['video_type'],
+            $result['thumbnail'],
             $result['view_count'],
             $result['uploaded_at']);
     } 

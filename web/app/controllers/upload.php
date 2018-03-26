@@ -1,7 +1,7 @@
 <?php
 
 require_once 'AbstractControllerBase.php';
-require_once 'models/UploadJobQueueDataBaseRepository.php';
+require_once 'infrastructure//UploadJobQueueDataBaseRepository.php';
 require_once 'services/UploadVideoService.php';
 
 /**

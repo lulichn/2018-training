@@ -2,11 +2,13 @@
 
 namespace services;
 
+require_once 'models/PostRepository.php';
+
 class PostService {
     private $postRepository;
 
     public function __construct(
-        $postRepository)
+        \models\PostRepository $postRepository)
     {
         $this->postRepository = $postRepository;
     }
@@ -24,3 +26,4 @@ class PostService {
 }
 
 ?>
+

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/PostDataBaseRepository.php';
+require_once 'infrastructure//PostDataBaseRepository.php';
 require_once 'services/PostService.php';
 
 /**

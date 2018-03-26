@@ -8,6 +8,7 @@ class Post {
     private $assetPath;
     private $filename;
     private $videoType;
+    private $thumbnail;
     private $viewCount;
     private $uploadedAt;
 
@@ -17,6 +18,7 @@ class Post {
         $assetPath,
         $filename,
         $videoType,
+        $thumbnail,
         $viewCount,
         $uploadedAt)
     {
@@ -25,6 +27,7 @@ class Post {
         $this->assetPath = $assetPath;
         $this->filename = $filename;
         $this->videoType = $videoType;
+        $this->thumbnail = $thumbnail;
         $this->viewCount = $viewCount;
         $this->uploadedAt = $uploadedAt;
     }
@@ -49,6 +52,10 @@ class Post {
         return $this->videoType;
     }
 
+    public function getThumbnail() {
+        return $this->thumbnail;
+    }
+
     public function getViewCount() {
         return $this->viewCount;
     }
@@ -64,6 +71,7 @@ class Post {
             'asset_path'  => $this->assetPath,
             'filename'    => $this->filename,
             'video_type'  => $this->videoType,
+            'thumbnail'   => $this->thumbnail,
             'view_count'  => $this->viewCount,
             'uploaded_at' => $this->uploadedAt);
 

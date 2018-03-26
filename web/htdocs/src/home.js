@@ -12,7 +12,7 @@ const Home = {
         </thead>
         <tbody>
           <tr v-for="(post) in posts" @click="select(post.id)">
-            <td><img v-bind:src="'assets/' +  post.asset_path + '/thumbnail'" width="225" height="127"></td>
+            <td><img v-bind:src="'assets' +  post.asset_path + '/' + post.thumbnail" width="225" height="127"></td>
             <td>{{post.title}}</td>
             <td>{{post.view_count}}</td>
             <td>{{post.uploaded_at}}</td>
