@@ -6,6 +6,6 @@ define('DB_PASS', 'password');
 define('DB_HOST', 'localhost');
 
 define('TEMP_PATH', '/tmp');
-define('ASSET_PATH', '/var/www/web/htdocs/assets');
+define('ASSET_PATH', '/srv/vilog/www/assets');
 
 ?>

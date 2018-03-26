@@ -1,7 +1,7 @@
 <?php
 
 // アプリケーションのルートディレクトリパス
-define('APP_PATH', realpath(dirname(__FILE__) . '/../../app'));
+define('APP_PATH', realpath(dirname(__FILE__) . '/..'));
 
 // include_pathに追加
 $includes = array(APP_PATH);
