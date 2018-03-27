@@ -1,4 +1,7 @@
 const Upload = {
+  components: {
+    Modal,
+  },
   template: `
     <div>
       <form enctype="multipart/form-data" novalidate>
@@ -24,16 +27,30 @@ const Upload = {
           <a class="button" @click="onSubmit">Submit</a>
         </div>
       </form>
+      <modal v-show="modalValue.isVisible" v-bind:modalValue="modalValue" @close="closeModal"/>
     </div>
   `,
   data() {
     return {
+      modalValue: {
+        isVisible: false,
+        message: '',
+        button: {
+          message: 'Return to home'
+        }
+      },
       target: null,
       previewSrc: null,
       title: ''
     }
   },
   methods: {
+    closeModal() {
+      this.modalValue.message = '';
+      this.modalValue.isVisible = false;
+
+      router.push({ path: '/' })
+    },
     onSelect(event) {
       let files = event.target.files;
       if (!files) {
@@ -55,14 +72,15 @@ const Upload = {
       axios.post('/api/upload', params, config)
         .then(response => {
           response;
+          this.modalValue.message = 'Upload completed!';
+          this.modalValue.isVisible = true;
         })
         .catch(error => {
           error;
+          this.modalValue.message = 'Upload failed...';
+          this.modalValue.isVisible = true;
         });
     }
-  },
-  addedfile(file) {
-    a=1;
   },
   mounted() {
   }

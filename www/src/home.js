@@ -35,7 +35,7 @@ const Home = {
         });
     },
     select(id) {
-      router.push({ path: 'watch', query: { v: id  }})
+      router.push({ path: '/watch', query: { v: id  }})
     }
   },
   mounted() {

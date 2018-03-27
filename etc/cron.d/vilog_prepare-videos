@@ -1,0 +1,5 @@
+# Run the hourly jobs
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+*/2 * * * * root php /srv/vilog/app/src/batch/PrepareVideo.php 
