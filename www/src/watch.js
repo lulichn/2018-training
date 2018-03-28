@@ -1,15 +1,17 @@
 const Watch = {
   template: `
-    <div class="video">
-      <video
-          id="watch-video"
-          class="video-js vjs-default-skin vjs-16-9"
-          controls
-          preload="auto"
-          autoplay
-          data-setup='{}'>
-        <source v-if="this.src" v-bind:src="this.src" v-bind:type="this.post.video_type"></source>
-      </video>
+    <div>
+      <div class="videocontent">
+        <video
+            id="watch-video"
+            class="video-js vjs-default-skin"
+            controls
+            preload="auto"
+            autoplay
+            data-setup='{"fluid": true}'>
+          <source v-if="src" v-bind:src="src" v-bind:type="post.video_type"></source>
+        </video>
+      </div>
       <div>
         <h1>{{ this.post.title }}</h1>
       </div>

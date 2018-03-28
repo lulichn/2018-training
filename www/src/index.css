@@ -10,7 +10,7 @@ nav {
 body > div {
 }
 
-.header, .main {
+.main {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
@@ -20,34 +20,38 @@ body > div {
 }
 
 .header {
-  display: flex;
-  padding-top: 2px;
+    display: flex;
+    padding-top: 2px;
+}
+
+.body {
+    margin: 16px 16px 16px;
 }
 
 .navigation-left {
-  margin-right: auto;
+    margin-right: auto;
 }
 
 .navigation-right {
 }
 
-.video {
-    margin: 16px 16px 16px;
+.videocontent {
+    max-width: calc(960px - 16px * 4);
 }
 
 .dropbox {
-  outline: 2px dashed grey; /* the dash box */
-  outline-offset: -10px;
-  //background: lightcyan;
-  color: dimgray;
-  font-size: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 10px;
-  min-height: 100px; /* minimum height */
-  position: relative;
-  cursor: pointer;
+    outline: 2px dashed grey; /* the dash box */
+    outline-offset: -10px;
+    //background: lightcyan;
+    color: dimgray;
+    font-size: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    min-height: 100px; /* minimum height */
+    position: relative;
+    cursor: pointer;
 }
 
 .input-file {
@@ -68,7 +72,7 @@ body > div {
     padding: 50px 0;
 }
 
- .modal-backdrop {
+.modal-backdrop {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -78,28 +82,28 @@ body > div {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .modal {
+.modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .modal-footer {
+.modal-footer {
     padding: 15px;
     display: flex;
-  }
+}
 
-  .modal-footer {
+.modal-footer {
     border-top: 1px solid #eeeeee;
     justify-content: flex-end;
-  }
+}
 
-  .modal-body {
+.modal-body {
     position: relative;
     padding: 20px 10px;
-  }
+}
 

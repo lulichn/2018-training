@@ -1,6 +1,6 @@
 const App = {
   template: `
-    <div>
+    <div class='main'>
       <nav>
         <div class='header'>
           <div class='navigation-left'>
@@ -11,7 +11,7 @@ const App = {
           </div>
         </div>
       </nav>
-      <div class="main">
+      <div class="body">
         <router-view></router-view>
       </div>
     </div>
