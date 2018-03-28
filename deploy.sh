@@ -17,3 +17,8 @@ cd /etc/cron.d
 if [ ! -L vilog_prepare-videos ]; then
   ln -s -r $CURRENT/etc/cron.d/vilog_prepare-videos vilog_prepare-videos
 fi
+
+# DB
+cd $CURRENT/db
+./migrate.sh
+
