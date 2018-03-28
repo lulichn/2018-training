@@ -27,7 +27,7 @@ class UploadJobQueueDataBaseRepository extends ModelBase implements UploadJobQue
     }
 
     public function ensureJobs($limit) {
-        $stmtJobs = $this->dbh->prepare('SELECT id, title, file_path, status, uploaded_at FROM upload_job_queue WHERE status = :status LIMIT :limit');
+        $stmtJobs = $this->dbh->prepare('SELECT id, title, file_path, status, uploaded_at FROM upload_job_queue WHERE status = :status ORDER BY uploaded_at ASC LIMIT :limit');
         $stmtJobs->bindValue(':status', UploadJobStatus::$INIT->name(), PDO::PARAM_STR);
         $stmtJobs->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
 

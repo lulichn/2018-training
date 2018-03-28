@@ -28,8 +28,7 @@ class PostDataBaseRepository extends ModelBase implements PostRepository {
     }
 
     public function findAll() {
-        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, thumbnail, view_count, uploaded_at FROM posts ORDER BY :order_key');
-        $param = array(':order_key' => 'created_at');
+        $stmt = $this->dbh->prepare('SELECT id, title, asset_path, filename, video_type, thumbnail, view_count, uploaded_at FROM posts ORDER BY uploaded_at DESC');
         $stmt->execute($param);
 
         $posts = array();
